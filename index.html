@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DessineMoiMal - Jeu de Dessin et Devinette</title>
+    <title>DessineMoiMal - Le jeu de dessin le plus amusant !</title>
     <style>
         * {
             margin: 0;
@@ -25,215 +25,342 @@
             padding: 20px;
         }
 
-        .header {
+        .hero {
             text-align: center;
             color: white;
-            margin-bottom: 40px;
+            padding: 60px 0;
         }
 
-        .header h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out;
         }
 
-        .header p {
-            font-size: 1.2rem;
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
             opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero .description {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            opacity: 0.8;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 18px 35px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .cta-btn.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta-btn.secondary:hover {
+            background: white;
+            color: #667eea;
         }
 
         .content {
             background: white;
-            border-radius: 15px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            margin-bottom: 30px;
+            border-radius: 20px;
+            padding: 60px 40px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            margin: 40px 0;
         }
 
         .section {
-            margin-bottom: 30px;
+            margin-bottom: 50px;
         }
 
         .section h2 {
             color: #667eea;
-            margin-bottom: 15px;
-            font-size: 1.8rem;
+            margin-bottom: 25px;
+            font-size: 2.2rem;
+            text-align: center;
         }
 
         .section p {
-            margin-bottom: 15px;
-            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            text-align: center;
+            color: #666;
         }
 
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
+            gap: 30px;
+            margin: 40px 0;
         }
 
         .feature {
-            background: #f8f9ff;
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8f0ff 100%);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 1px solid #e0e7ff;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
         }
 
         .feature h3 {
             color: #667eea;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
         }
 
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 20px 0;
+        .feature p {
+            color: #666;
+            font-size: 1rem;
+            text-align: left;
         }
 
-        .tech-tag {
-            background: #667eea;
+        .testimonials {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 8px 16px;
+            padding: 60px 40px;
             border-radius: 20px;
-            font-size: 0.9rem;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .testimonials h2 {
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .testimonial {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .testimonial p {
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .testimonial .author {
+            font-weight: bold;
+            opacity: 0.9;
         }
 
         .download-section {
             text-align: center;
-            background: #667eea;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 30px;
-            border-radius: 15px;
-            margin-top: 30px;
+            padding: 60px 40px;
+            border-radius: 20px;
+            margin: 40px 0;
         }
 
         .download-section h2 {
             color: white;
             margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+
+        .download-section p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .download-btn {
             display: inline-block;
             background: white;
             color: #667eea;
-            padding: 15px 30px;
+            padding: 20px 40px;
             text-decoration: none;
-            border-radius: 25px;
+            border-radius: 30px;
             font-weight: bold;
-            margin: 10px;
-            transition: transform 0.3s ease;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         .download-btn:hover {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
         }
 
         .footer {
             text-align: center;
             color: white;
             opacity: 0.8;
-            margin-top: 40px;
+            margin-top: 60px;
+            padding: 40px 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2rem;
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
             }
             
             .content {
-                padding: 20px;
+                padding: 30px 20px;
             }
             
             .features {
                 grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .download-buttons {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
+        <div class="hero">
             <h1>🎨 DessineMoiMal</h1>
-            <p>Jeu de dessin et devinette multijoueur</p>
+            <p class="subtitle">Le jeu de dessin le plus amusant du moment !</p>
+            <p class="description">Libérez votre créativité et défiez vos amis dans ce jeu de dessin et devinette unique. Des contraintes amusantes, des défis créatifs et des fous rires garantis !</p>
+            <div class="cta-buttons">
+                <a href="#download" class="cta-btn">🚀 Télécharger maintenant</a>
+                <a href="#features" class="cta-btn secondary">✨ Découvrir les fonctionnalités</a>
+            </div>
         </div>
 
         <div class="content">
-            <div class="section">
-                <h2>📱 À propos du projet</h2>
-                <p>DessineMoiMal est un jeu mobile développé avec Flutter qui combine créativité et défi. Les joueurs doivent dessiner des mots ou des phrases sous contraintes spécifiques, puis les autres joueurs tentent de deviner ce qui a été dessiné.</p>
-                <p>Le jeu propose différents niveaux de difficulté, des règles spéciales, et un système de vies pour rendre l'expérience plus captivante.</p>
-            </div>
-
-            <div class="section">
-                <h2>✨ Fonctionnalités principales</h2>
+            <div class="section" id="features">
+                <h2>✨ Pourquoi DessineMoiMal ?</h2>
+                <p>Un jeu qui transforme vos soirées entre amis en moments inoubliables de créativité et de rires !</p>
+                
                 <div class="features">
                     <div class="feature">
-                        <h3>🎯 Système de contraintes</h3>
-                        <p>Dessinez avec des limitations créatives : sans lever le crayon, avec la main non-dominante, ou en un temps limité.</p>
+                        <span class="feature-icon">🎯</span>
+                        <h3>Défis créatifs</h3>
+                        <p>Dessinez avec des contraintes amusantes : sans lever le crayon, avec la main gauche, ou en 30 secondes chrono !</p>
                     </div>
                     <div class="feature">
-                        <h3>👥 Mode multijoueur</h3>
-                        <p>Jouez avec vos amis et famille dans des parties en temps réel avec un système de scores.</p>
+                        <span class="feature-icon">👥</span>
+                        <h3>Jouez ensemble</h3>
+                        <p>Invitez vos amis et votre famille pour des parties endiablées en temps réel. Plus on est de fous, plus on rit !</p>
                     </div>
                     <div class="feature">
-                        <h3>💎 Système de vies</h3>
-                        <p>Gérez vos vies et débloquez des bonus dans la boutique du jeu.</p>
+                        <span class="feature-icon">🏆</span>
+                        <h3>Compétition amicale</h3>
+                        <p>Un système de scores et de vies qui rend chaque partie palpitante. Qui sera le champion du dessin ?</p>
                     </div>
                     <div class="feature">
-                        <h3>🎵 Audio immersif</h3>
-                        <p>Musique de fond et effets sonores pour une expérience complète.</p>
+                        <span class="feature-icon">🎵</span>
+                        <h3>Ambiance festive</h3>
+                        <p>Musique entraînante et effets sonores pour une expérience immersive et joyeuse.</p>
                     </div>
                     <div class="feature">
-                        <h3>📊 Statistiques</h3>
-                        <p>Suivez vos performances avec un système de scores détaillé.</p>
+                        <span class="feature-icon">📊</span>
+                        <h3>Suivez vos progrès</h3>
+                        <p>Des statistiques détaillées pour voir votre évolution et comparer vos performances avec vos amis.</p>
                     </div>
                     <div class="feature">
-                        <h3>🛒 Boutique intégrée</h3>
-                        <p>Achetez des vies supplémentaires et des bonus via des achats intégrés.</p>
+                        <span class="feature-icon">🛒</span>
+                        <h3>Boutique intégrée</h3>
+                        <p>Débloquez des bonus et des vies supplémentaires pour prolonger le plaisir de jouer.</p>
                     </div>
                 </div>
-            </div>
-
-            <div class="section">
-                <h2>🛠️ Technologies utilisées</h2>
-                <div class="tech-stack">
-                    <span class="tech-tag">Flutter</span>
-                    <span class="tech-tag">Dart</span>
-                    <span class="tech-tag">Android</span>
-                    <span class="tech-tag">iOS</span>
-                    <span class="tech-tag">Web</span>
-                    <span class="tech-tag">macOS</span>
-                    <span class="tech-tag">Linux</span>
-                    <span class="tech-tag">Windows</span>
-                </div>
-                <p>Le projet est développé avec Flutter, permettant une distribution multiplateforme sur tous les appareils mobiles et desktop.</p>
-            </div>
-
-            <div class="section">
-                <h2>📁 Structure du projet</h2>
-                <p>Le projet est organisé de manière modulaire avec :</p>
-                <ul style="margin-left: 20px; margin-top: 10px;">
-                    <li><strong>lib/screens/</strong> - Écrans principaux de l'application</li>
-                    <li><strong>lib/models/</strong> - Modèles de données (joueur, état du jeu, etc.)</li>
-                    <li><strong>lib/widgets/</strong> - Composants réutilisables</li>
-                    <li><strong>lib/services/</strong> - Services (publicités, achats intégrés)</li>
-                    <li><strong>lib/data/</strong> - Gestion des données et préférences</li>
-                    <li><strong>assets/</strong> - Ressources (images, audio)</li>
-                </ul>
             </div>
         </div>
 
-        <div class="download-section">
-            <h2>🚀 Télécharger l'application</h2>
-            <p>DessineMoiMal sera bientôt disponible sur les stores !</p>
-            <a href="#" class="download-btn">📱 Google Play</a>
-            <a href="#" class="download-btn">🍎 App Store</a>
-            <a href="#" class="download-btn">💻 Télécharger APK</a>
+        <div class="testimonials">
+            <h2>💬 Ce qu'en disent les joueurs</h2>
+            <div class="testimonial">
+                <p>"Le jeu le plus drôle que j'aie jamais joué ! Mes amis et moi passons des heures à rire de nos dessins catastrophiques."</p>
+                <div class="author">- Marie, 24 ans</div>
+            </div>
+            <div class="testimonial">
+                <p>"Parfait pour les soirées entre amis. Les contraintes de dessin rendent le jeu encore plus amusant et créatif !"</p>
+                <div class="author">- Thomas, 31 ans</div>
+            </div>
+            <div class="testimonial">
+                <p>"Mes enfants adorent ce jeu ! C'est devenu notre activité préférée du weekend en famille."</p>
+                <div class="author">- Sophie, 38 ans</div>
+            </div>
+        </div>
+
+        <div class="download-section" id="download">
+            <h2>🚀 Prêt à jouer ?</h2>
+            <p>DessineMoiMal sera bientôt disponible sur tous vos appareils préférés !</p>
+            <div class="download-buttons">
+                <a href="#" class="download-btn">📱 Google Play Store</a>
+                <a href="#" class="download-btn">🍎 App Store</a>
+                <a href="#" class="download-btn">💻 Télécharger APK</a>
+            </div>
         </div>
 
         <div class="footer">
-            <p>© 2024 DessineMoiMal - Développé avec ❤️ en Flutter</p>
+            <p>© 2024 DessineMoiMal - Créé avec ❤️ pour vous faire rire</p>
         </div>
     </div>
 </body>
